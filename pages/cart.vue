@@ -1,5 +1,10 @@
 <script lang="ts" setup>
 import type { Products } from '~/types/products';
+
+definePageMeta({
+    middleware: ["user-access"]
+});
+
 const products = ref<Products[]>([]);
 const totalPrice = computed(() => {
     return products.value.filter((product) => product.price !==
@@ -34,7 +39,7 @@ const removeCart = (id: number) => {
             <div class="flex justify-between items-center pb-7 border-b border-gray-
             300 mb-6">
 
-                <h1 class="text-3xl font-medium">Shopping Cart</h1>
+                <h1 class="text-3xl font-medium">Your Cart</h1>
                 <p class="text-3xl font-medium">{{ products.length }} Items</p>
             </div>
             <div v-if="products.length > 0" class="flex flex-col gap-6">

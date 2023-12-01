@@ -1,6 +1,10 @@
 <script lang="ts" setup>
 import { useProductsStore } from "~/stores/products";
 
+definePageMeta({
+  middleware: ["user-access"]
+});
+
 const productStore = useProductsStore();
 const allProducts = ref([]);
 
@@ -9,16 +13,15 @@ allProducts.value = productStore.products;
 });
 
 const selectedCategory = ref("");
+
 </script>
 
 <template>
   <section>
     <div class="container">
       <div class="py-10">
-        <div class="mb-6 flex justify-end gap-6">
-          <NuxtLink to="/category/create" class="bg-orange-500 text-white flex justify-center items-center px-3 rounded-lg">Create Category</NuxtLink>
-          <NuxtLink to="/product/create" class="bg-green-500 text-white flex justify-center items-center px-3 rounded-lg">Create Products</NuxtLink>
-          <Dropdown @selected-category="selectedCategory = $event" />
+        <div class="mb-6 flex justify-end gap-2">
+          <NuxtLink to="/product/create" class="bg-blue-500 text-white flex justify-center items-center px-3 rounded-lg" style="height: 42px; margin-right: -90px;">New Products</NuxtLink>
         </div>
         <div class="flex gap-6 flex-wrap mx-auto">
           <template v-for="(item, index) in allProducts" :key="index">

@@ -23,7 +23,7 @@ const formCreateProduct = [
     label: "Name",
     type: "text",
     value: "",
-    placeholder: "Men's Streetwear",
+    placeholder: "Input your Product name",
     required: true,
   },
   {
@@ -32,7 +32,7 @@ const formCreateProduct = [
     type: "text",
     value: "",
     placeholder:
-      "This shirt features a vibrant and eye-catching color and a solid pattern that will give you a happy feeling...",
+      "Your Description Product",
     required: true,
   },
   {
@@ -40,7 +40,7 @@ const formCreateProduct = [
     label: "Price",
     type: "number",
     value: "",
-    placeholder: "$30",
+    placeholder: "$99",
     required: true,
   },
   {
@@ -114,7 +114,7 @@ const uploadFile = async (formFile: any) => {
 <template>
   <section class="flex justify-center py-10">
     <div class="w-[500px]">
-      <h1 class="text-2xl mb-7 font-medium">Create Products</h1>
+      <h1 class="text-2xl mb-7 font-medium">Create Your Products</h1>
       <div
         v-if="isShowAlert"
         :class="`p-4 mb-4 text-sm rounded-lg ${
